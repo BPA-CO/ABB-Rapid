@@ -1,0 +1,178 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "RAPID",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+    {
+      "include": "#operators"
+    },
+    {
+      "include": "#constants"
+    },
+    {
+      "include": "#variable-types"
+    },
+    {
+      "include": "#variable-modifiers"
+    },
+    {
+      "begin": "!",
+      "end": "\\n",
+      "name": "comment.line.rapid"
+    },
+    {
+      "begin": "\\b([pP][rR][oO][cC])\\b",
+      "end": "(\\()",
+      "patterns": [
+        {
+          "name": "entity.name.function.rapid",
+          "match": "\\b[a-zA-Z_][a-zA-Z_0-9]*\\b"
+        }
+      ]
+    },
+    {
+      "begin": "\\b[fF][uU][nN][cC]\\b",
+      "end": "(\\b[a-zA-Z_][a-zA-Z_0-9]*)\\s*(\\()",
+      "endCaptures": {
+        "1": {
+          "name": "entity.name.function.rapid"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#variable-types"
+        }
+      ]
+    },
+    {
+      "match": "\\b([tT][rR][aA][pP])\\s+([a-zA-Z_][a-zA-Z_0-9]*)",
+      "captures": {
+        "2": {
+          "name": "entity.name.function.rapid"
+        }
+      }
+    }
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"match": "\\b(if|IF|then|THEN|else|ELSE|elseif|ELSEIF|endif|ENDIF)\\b",
+					"name": "keyword.control.rapid"
+				},
+				{
+					"match": "\\b(while|WHILE|do|DO|endwhile|ENDWHILE)\\b",
+          "name": "keyword.control.rapid"
+				},
+        {
+          "match": "\\b(for|FOR|from|FROM|to|TO|step|STEP|endfor|ENDFOR)\\b",
+          "name": "keyword.control.rapid"
+        },
+        {
+          "match": "\\b(test|TEST|case|CASE|dedault|DEFAULT|endtest|ENDTEST)\\b",
+          "name": "keyword.control.rapid"
+        },
+        {
+          "match": "\\b(return|RETURN|goto|GOTO|stop|STOP)\\b",
+          "name": "keyword.control.rapid"
+        },
+        {
+          "match": "\\b(raise|RAISE|retry|RETRY|trynext|TRYNEXT|exit|EXIT|ExitCycle)\\b",
+          "name": "keyword.control.rapid"
+        }
+      ]
+		},
+		"strings": {
+			"name": "string.quoted.double.rapid",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+			]
+		},
+    "operators": {
+      "patterns": [
+        {
+          "match": ":=",
+          "name": "keyword.operator.assignment.rapid"
+        },
+        {
+          "match": "[*/+-]|\\b(mod|MOD|div|DIV)\\b",
+          "name": "keyword.operator.arithmetic.rapid"
+        },
+        {
+          "match": "(=(?<!:)|<=|>=|<>|<|>)",
+          "name": "keyword.operator.comparison.rapid"
+        },
+        {
+          "match": "\\b(and|AND|not|NOT|or|OR)\\b",
+          "name": "keyword.operator.logical.rapid"
+        },
+        {
+          "match": "\\b(incr|INCR|decr|DECR)\\b",
+          "name": "keyword.operator.increment-decrement.rapid"
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "match": "\\b(([0-9]+\\.?[0-9]*)|([0-9]+\\.?[0-9]*)((e|E)(\\+|-)?[0-9]+)?)\\b",
+          "name": "constant.numeric.rapid"
+        },
+        {
+          "match": "\\b([tT][rR][uU][eE]|[fF][aA][lL][sS][eE])\\b",
+          "name": "constant.language.rapid"
+        }
+      ]
+    },
+    "variable-types": {
+      "patterns": [
+        {
+          "match": "\\b(num|dnum|bool|string|clock|errnum|intnum)\\b",
+          "name": "storage.type.rapid"
+        },
+        {
+          "match": "\\b(pos|pose|robtarget|mecunit|wobjdata|tooldata|loaddata)\\b",
+          "name": "storage.type.rapid"
+        },
+        {
+          "match": "\\b(triggdata|speeddata|zonedata|stoppointdata)\\b",
+          "name": "storage.type.rapid"
+        },
+        {
+          "match": "\\b(trapdata|errdomain|errtype)\\b",
+          "name": "storage.type.rapid"
+        },
+        {
+          "match": "\\b(signaldi|signaldo|signalai|signalao|signalgi|signalgo|dionum)\\b",
+          "name": "storage.type.rapid"
+        }
+      ]
+    },
+    "variable-modifiers": {
+      "patterns": [
+        {
+          "match": "\\b(const|CONST|task|TASK|inout|INOUT)\\b",
+          "name": "storage.modifier.rapid"
+        },
+        {
+          "captures": {
+            "1": {
+              "name": "punctuation.separator.variable-access.rapid"
+            },
+            "2": {
+              "name": "variable.other.dot-access.rapid"
+            }
+          },
+          "match": "(\\.)([a-zA-Z_][a-zA-Z_0-9]*)\\b(?!\\s*\\()"
+        }
+      ]
+    }
+	},
+	"scopeName": "source.rapid"
+}

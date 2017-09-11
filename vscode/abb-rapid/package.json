@@ -1,0 +1,34 @@
+{
+    "name": "abb-rapid",
+    "displayName": "ABB RAPID",
+    "description": "RAPID language support for ABB industrial robots.",
+    "version": "0.0.1",
+    "publisher": "benlsheets",
+    "engines": {
+        "vscode": "^1.5.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "activationEvents": [
+        "onLanguage:rapid"
+    ],
+    "main": "./bin/extension",
+    "contributes": {
+        "languages": [{
+            "id": "rapid",
+            "aliases": ["RAPID", "rapid"],
+            "extensions": [".mod",".sys"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "rapid",
+            "scopeName": "source.rapid",
+            "path": "./syntaxes/rapid.tmLanguage.json"
+        }],
+        "snippets": [{
+            "language": "rapid",
+            "path": "./snippets/rapid.json"
+        }]
+    }
+}

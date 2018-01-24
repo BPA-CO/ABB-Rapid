@@ -3,3 +3,6 @@ This repository contains add-ins for several text editors that help when working
 
 ## macOS
 Copy the entire abb-rapid folder into ~/.vscode/extensions and restart VS Code.
+
+## Windows
+Copy the entire abb-rapid folder into %userprofile%/.vscode/extensions and restart VS Code.

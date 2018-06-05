@@ -2,7 +2,7 @@
 This repository contains add-ins for several text editors that help when working with the RAPID programming language used by ABB industrial robots.
 
 ## macOS / Linux
-Copy the entire abb-rapid folder into ~/.vscode/extensions and restart VS Code.
+Copy the entire language-rapid folder into ~/.atom/packages and restart Atom.
 
 ## Windows
-Copy the entire abb-rapid folder into %USERPROFILE%\.vscode\extensions and restart VS Code.
+Copy the entire language-rapid folder into %USERPROFILE%\.atom\packages and restart Atom.
